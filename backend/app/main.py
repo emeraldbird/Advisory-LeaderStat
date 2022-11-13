@@ -11,6 +11,7 @@ app.mount("/static", StaticFiles(directory="static"), name="static")
 
 router = APIRouter(prefix='/api')
 
+
 async def check_jwt_token(Authorization: Union[str, None] = Header(default=None)):
     if not Authorization:
         raise HTTPException(401, 'Authorization required')
@@ -40,12 +41,15 @@ async def verified_token(response = Depends(check_jwt_token)):
 
     return True
 
+
 @router.get('/check_token')
 async def check_token(response = Depends(check_jwt_token)):
     return {'token': response.get('token', ''), 'verified': response.get('verified', False)}
 
+
 @router.get('/')
 async def root():
     return {'message': 'LeaderStat backend API'}
+
 
 app.include_router(router)
