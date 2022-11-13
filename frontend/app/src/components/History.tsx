@@ -4,12 +4,12 @@ import Message from './Message';
 interface IData{
     id:number
     jwt:string
+    toggle:()=>void
 }
 
-const History = ({id,jwt}:IData) => {
+const History = ({id,jwt,toggle}:IData) => {
 
     const [messages,setMessages] = useState<Array<any>>([])
-
 
     useEffect(()=>{console.log(messages);
     },[messages])
@@ -25,7 +25,8 @@ const History = ({id,jwt}:IData) => {
             })
             .then(res=>res.text())
             .then(res=>JSON.parse(res).messages)
-            .then(res=>res)
+            .then(res=>setMessages(res)
+            )
         }
         showHitory()
     },[])
@@ -34,12 +35,13 @@ const History = ({id,jwt}:IData) => {
  
   return(
         
-    <div className='bg-slate-600 absolute items-center justify-center flex opacity-70 top-0 bottom-0 left-0 right-0 z-10 rounded-xl'>
+    <div className='bg-slate-100 absolute items-center justify-center flex-col top-0 bottom-0 left-0 right-0 z-10 rounded-xl overflow-y-auto'>
         {
             messages && messages.map(mas => {
-                return <Message message={mas}></Message>
+                return <Message message={mas.text}></Message>
             })
         }
+        <p className='text-center m-5'><button className='bg-sky-400 w-1/2 p-1 m-1 rounded-3xl text-white' onClick={()=>{toggle()}}>Cancel</button></p>
     </div>
   )
 }

@@ -48,24 +48,27 @@ const UserData = ({jwt,toggle}:IData) => {
 
  
   return(
-    <div className=' absolute items-center justify-center flex top-0 bottom-0 left-0 right-0 z-10 rounded-xl'>
-        <div className='h-auto w-96 bg-white rounded-xl justify-between items-center '>
-                <div className='m-5'>
+    <div className=' absolute items-center justify-center flex top-0 bottom-0 left-0 right-0 z-10  bg-white rounded-xl'>
+        <div className='h-auto w-96 bg-slate-100 rounded-xl justify-between items-center '>
+                <div className='m-5 '>
                     <p className='m-3'>Icon:</p>
-                    <input type='text' className='w-full p-2 inline-block border-gray-900 bg-transparent border placeholder-stone-900 rounded-xl focus:outline-none'
+                    <input type='text' className='w-full p-2 inline-block shadow-xl bg-white placeholder-stone-900 rounded-3xl focus:outline-none'
                     value={data.avatar} onChange={(text)=>{setData({...data,avatar:text.target.value})}}></input>
                     <p className='m-3'>Name:</p>
-                    <input type='text' className='w-full p-2 border-gray-900 bg-transparent border placeholder-stone-900 rounded-xl focus:outline-none'
+                    <input type='text' className='w-full p-2 shadow-xl bg-white placeholder-stone-900 rounded-3xl focus:outline-none'
                     value={data.name} onChange={(text)=>{setData({...data,name:text.target.value})}}></input>
                     <p className='m-3'>Surname:</p>
-                    <input type='text' className='w-full p-2 border-gray-900 bg-transparent border placeholder-stone-900 rounded-xl focus:outline-none'
+                    <input type='text' className='w-full p-2 shadow-xl bg-white placeholder-stone-900 rounded-3xl focus:outline-none'
                     value={data.surname} onChange={(text)=>{setData({...data,surname:text.target.value})}}></input>
                     <p className='m-3'>Middlename:</p>
-                    <input type='text' className='w-full p-2 border-gray-900 bg-transparent border placeholder-stone-900 rounded-xl focus:outline-none'
+                    <input type='text' className='w-full p-2 shadow-xl bg-white placeholder-stone-900 rounded-3xl focus:outline-none'
                     value={data.middleName} onChange={(text)=>{setData({...data,middleName:text.target.value})}}></input>
                     <div className='w-fill h-16 flex justify-center'>
-                        <button className='bg-slate-400 m-3 w-28 rounded-xl' onClick={()=>{sendData()}}>Confirm</button>
-                        <button className='bg-slate-400 m-3 w-28 rounded-xl' onClick={()=>{toggle()}}>Cancel</button>
+                        <button className='bg-sky-400 m-3 w-28 rounded-3xl text-white' onClick={()=>{
+                            sendData()
+                            toggle()
+                        }}>Confirm</button>
+                        <button className='bg-sky-400 m-3 w-28 rounded-3xl text-white' onClick={()=>{toggle()}}>Cancel</button>
                     </div>
                 </div>
             </div>

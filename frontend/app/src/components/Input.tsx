@@ -37,18 +37,18 @@ const Input = ({jwt,addMessage,toggleHistory,toggleUserData,id}:IData) => {
   }
 
   return(
-    <div className='absolute bottom-0 right-0 left-0'>
-      <div className='flex justify-between items-center h-14 m-3 bg-slate-400 rounded-xl border border-gray-900 '>
+    <div className='absolute bottom-0 right-0 left-0 '>
+      <div className='flex justify-between items-center h-14 m-3 bg-slate-100 rounded-xl '>
           <button className='m-5 hover:text-slate-800'>{paperClip}</button>
           <input type='text' value={text} onChange={(text)=>{setText(text.target.value)}}  
-              className='w-full p-2 border-gray-900 bg-transparent border placeholder-stone-900 rounded-xl focus:outline-none' placeholder='Введите сообщение...'></input>
+              className='w-full p-2 bg-white placeholder-stone-900 rounded-xl focus:outline-none' placeholder='Введите сообщение...'></input>
           <button className='m-5 hover:text-slate-800' onClick={()=>{sendMassage()}}>{send}</button>
       </div>
       <div className='flex m-3'>
-          <button className='bg-slate-400 w-1/2 p-1 m-1 rounded-xl border border-gray-900' onClick={()=>{toggleHistory()}}>
+          <button className='bg-sky-400 w-1/2 p-1 m-1 rounded-3xl text-white ' onClick={()=>{toggleHistory()}}>
             История сообщений
           </button>
-          <button className='bg-slate-400 w-1/2 p-1 m-1 rounded-xl border border-gray-900' onClick={()=>{toggleUserData()}}>
+          <button className='bg-sky-400 w-1/2 p-1 m-1 rounded-3xl text-white ' onClick={()=>{toggleUserData()}}>
             Данные пользователя
           </button>
       </div>
